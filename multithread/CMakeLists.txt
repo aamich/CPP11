@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.8)
+project(mth)
+add_executable(mth mth.cpp)
+TARGET_LINK_LIBRARIES(mth pthread)
+#add_definitions(-pthread)
