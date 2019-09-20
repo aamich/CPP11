@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.8)
+project(chron)
+add_executable(chron chrono.cpp)
+#TARGET_LINK_LIBRARIES(mth pthread)
+#add_definitions(-pthread)
