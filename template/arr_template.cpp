@@ -101,11 +101,11 @@ int main() {
 	cout << "sizeof(arr)=" << sizeof(arr) << endl;
 
 	array<char, 1> ca{'a'};
-	cout <<  "sizeof(ca), one char, = " << sizeof(ca) << endl;
+	cout <<  "sizeof(ca) (array<char, 1> ca{'a'}) = " << sizeof(ca) << endl;
 
 	// empy class Base, sizeof(Base)==1
 	Base b;
-	cout << sizeof(b) << endl;
+	cout << "sizeof(b), (Base b)" << sizeof(b) << endl;
 
 	// static variable inside a function
 	cout << func_static_int();
@@ -124,17 +124,17 @@ int main() {
 		throw 30;
 	}
 	catch (int e) {
-		cout << e << endl;
+		cout << "catch int:" << e << endl;
 	}
 	try {
-		Throw th; // throw char 'c'
+		Throw th; // throw char 'c' in ctor
 		throw 200;	// throw int 200
 	}
 	catch (int e) {
-		cout << e << endl;	// won't catch int 200
+		cout << "catch int:" << e << endl;	// won't catch int 200
 	}
 	catch (char c) {
-		cout << c << endl;	// it catches char 'c'
+		cout << "catch char:" << c << endl;	// it catches char 'c'
 	}
 
 	// default initialization
