@@ -27,3 +27,35 @@ std::string trim(const std::string &s)
 
 std::string str("hello world! ");
 boost::trim_right(str);
+
+// more examples
+    #include <boost/algorithm/string.hpp>
+    using namespace std;
+    using namespace boost;
+    
+    // ...
+
+    string str1(" hello world! ");
+    to_upper(str1);  // str1 == " HELLO WORLD! "
+    trim(str1);      // str1 == "HELLO WORLD!"
+
+    string str2=
+       to_lower_copy(
+          ireplace_first_copy(
+             str1,"hello","goodbye")); // str2 == "goodbye world!"
+
+// more
+    string str1="     hello world!     ";
+    string str2=trim_left_copy(str1);   // str2 == "hello world!     "
+    string str3=trim_right_copy(str1);  // str3 == "     hello world!"
+    trim(str1);                         // str1 == "hello world!"
+
+    string phone="00423333444";
+    // remove leading 0 from the phone number
+    trim_left_if(phone,is_any_of("0")); // phone == "423333444"
+
+// more
+str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+
+// more
+ str.erase (std::remove (str.begin(), str.end(), ' '), str.end());
