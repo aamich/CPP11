@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int add(int a, int b) {
+  return a+b;
+}
+
+int sub(int a, int b) {
+ return a-b;
+}
+ 
+typedef int(*mathFun)(int, int);
+mathFun fun(int type) {
+ return type==1? add : sub;
+}
+// or the following
+int (*fun (int type))(int, int) {
+ return type==1? add : sub;
+}
+
+int main() {
+ int (*someFun)(int, int);
+ someFun = fun(1);
+ int c = someFun(1,2);
+ printf("c=%d\n", c);
+ // func ptr array
+ int (*Arr[2])(int, int) = {add, sub};
+ int c=(*Arr[0])(1,2);
+ int d=(*Arr[1])(2,1);
+ print("c=%d, d=%d\n", c, d);
+ // or use typedef 
+ mathFun Arr[2]={add, sub};
+ ...
+}
