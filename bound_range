@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+int main() {
+	vector<int> v{0,1,3,4,5,5, 8, 9};
+	function<void(int)> bound = [&](int i) {
+		auto uit=upper_bound(begin(v), end(v), i);
+		auto lit=lower_bound(begin(v), end(v), i);
+		auto it=equal_range(begin(v), end(v), i);
+		cout << i << endl;
+		cout << "upper_bound:" << *uit << endl;
+		cout << "lower_bound:" << *lit << endl;
+		cout << *it.first << ":" << *it.second << endl;
+		cout << "prev:" << *prev(lit) << endl;
+	};
+	bound(1);
+	bound(5);
+}
